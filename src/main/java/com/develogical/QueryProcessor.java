@@ -1,4 +1,6 @@
 package com.develogical;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
@@ -14,6 +16,17 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("spencer")) {
             return "Good Morning";
         }
+
+        Pattern mult = Pattern.compile("what is (\\d+) multiplied by (\\d+)");
+        Matcher matcher = mult.matcher(query);
+        System.out.println(matcher.matches());
+        if (matcher.matches()) {
+            String first = matcher.group(1);
+            String second = matcher.group(2);
+            int res = Integer.valueOf(first) * Integer.valueOf(second);
+            return String.valueOf(res);
+        }
+
         return "";
     }
 }

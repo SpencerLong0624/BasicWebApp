@@ -35,4 +35,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Spencer"), containsString("Good"));
     }
 
+    @Test
+    public void multiplyNums() throws Exception {
+        assertThat(queryProcessor.process("what is 2 multiplied by 2"), containsString("4"));
+    }
+
 }
